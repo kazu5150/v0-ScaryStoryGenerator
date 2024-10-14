@@ -2,26 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #000000; /* Black background */
+    --foreground: #ffffff; /* White text for readability */
+    --card: #1a1a1a; /* Dark grey for card background */
+    --card-foreground: #ffffff;
+    --popover: #1a1a1a;
+    --popover-foreground: #ffffff;
+    --primary: #ff0000; /* Red for primary elements (including titles) */
+    --primary-foreground: #ffffff;
+    --secondary: #006400; /* Dark green for secondary elements */
+    --secondary-foreground: #ffffff;
+    --muted: #555555; /* Grey for muted elements */
+    --muted-foreground: #ffffff;
+    --accent: #4b0082; /* Dark indigo for accent elements */
+    --accent-foreground: #ffffff;
+    --destructive: #006400; /* Dark green for destructive elements */
+    --destructive-foreground: #ffffff;
+    --border: #ff0000; /* Red for borders */
+    --input: #2f4f4f; /* Dark slate grey for input fields */
+    --ring: #4b0082; /* Dark indigo for focus rings */
+    --chart-1: #4b0082;
+    --chart-2: #006400;
+    --chart-3: #555555;
+    --chart-4: #4b0082;
+    --chart-5: #006400;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  .dark {
+    --background: #000000;
+    --foreground: #ffffff;
+    --card: #1a1a1a;
+    --card-foreground: #ffffff;
+    --popover: #1a1a1a;
+    --popover-foreground: #ffffff;
+    --primary: #ff0000; /* Red for primary elements (including titles) */
+    --primary-foreground: #ffffff;
+    --secondary: #006400;
+    --secondary-foreground: #ffffff;
+    --muted: #555555;
+    --muted-foreground: #ffffff;
+    --accent: #4b0082;
+    --accent-foreground: #ffffff;
+    --destructive: #006400;
+    --destructive-foreground: #ffffff;
+    --border: #ff0000;
+    --input: #2f4f4f;
+    --ring: #4b0082;
+    --chart-1: #4b0082;
+    --chart-2: #006400;
+    --chart-3: #555555;
+    --chart-4: #4b0082;
+    --chart-5: #006400;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  input {
+    background-color: var(--input);
+    color: var(--foreground);
+    border-color: var(--border);
+    @apply focus:ring-ring;
+  }
+
+  .scary-title, .scary-description {
+    color: #ff0000; /* Red color for specified text */
   }
 }
